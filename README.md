@@ -43,3 +43,14 @@ The Power BI dashboard was created to visualize insights from the dataset.
 The full Power BI dashboard file is available for download:
 
 [Download Power BI Dashboard](superstore_sales_analysis.pbix)
+
+---
+
+## Conclusion
+This project demonstrates an end-to-end data analytics workflow:
+- Data cleaning with Python  
+- Analysis with SQL  
+- Visualization and insights with Power BI  
+
+It provides a clear view of sales, profit, and customer behavior to guide business decisions.
+
