@@ -29,7 +29,7 @@ The goal is to help the business identify top-performing products, loss-making p
 The Power BI dashboard was created to visualize insights from the dataset.  
 
 ### Dashboard Screenshot
-![Dashboard Overview](Screenshots/superstore_sales_dashboard.png)
+![Dashboard Overview](Screenshots/superstore_sales _dashboard.png)
 
 ### Key Insights
 - Certain categories and sub-categories generate most of the revenue
