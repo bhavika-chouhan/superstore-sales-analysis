@@ -1,56 +1,98 @@
 # Superstore Sales Analysis
 
-## Project Overview
-This project analyzes sales performance and profit trends of a superstore.  
-The goal is to help the business identify top-performing products, loss-making products, and understand the impact of discounts, shipping, and regions on sales.  
-
-**Tools Used:** Python, SQL, Power BI
+**Tools:** Python · SQL (PostgreSQL) · Power BI  
+**Dataset:** 9,000+ sales transactions across product categories, regions, and customer segments  
+**GitHub:** [View Repository](https://github.com/bhavika-chouhan/superstore-sales-analysis)
 
 ---
 
-## Data Cleaning & Preparation
-- Python was used to clean and preprocess the dataset:
-  - Handle missing values
-  - Format columns for analysis
-  - Prepare data for SQL querying and dashboard visualization
+## Business Problem
+
+A retail superstore needed to understand why overall profit margins were underperforming despite strong sales numbers. The goal was to identify which products, regions, and discount practices were silently draining profitability — and which were driving it.
 
 ---
 
-## SQL Analysis
-- Analyzed sales and profit across product categories and sub-categories
-- Identified top-selling and loss-making products
-- Evaluated the impact of discounts on revenue
-- Compared sales and profit by region and shipping type
+## What I Found
+
+### 3 Sub-Categories With Negative Profit Margins
+Despite generating sales revenue, these sub-categories were losing money on every order:
+
+| Sub-Category | Profit Margin |
+|---|---|
+| Tables | -8.56% |
+| Bookcases | -3.02% |
+| Supplies | -2.55% |
+
+Furniture as a category had **714 loss-making orders** — the highest of any category.
+
+### The Best Performers Were Hiding in Plain Sight
+While Furniture was losing money, these Office Supplies sub-categories were quietly generating the highest margins:
+
+| Sub-Category | Profit Margin |
+|---|---|
+| Labels | 44.42% |
+| Paper | 43.39% |
+| Envelopes | 42.27% |
+
+### Discount Impact
+Orders with higher discount levels showed a consistent decline in profit — analyzed across all discount tiers using SQL aggregations. The data revealed a clear threshold beyond which discounting actively destroyed margin.
+
+### Regional & Seasonal Patterns
+- Month-over-month sales growth tracked using SQL LAG functions across all 4 years
+- Top 3 months per year identified using RANK() window functions
+- Regional sales and profit compared across all 4 regions
 
 ---
 
-## Dashboard & Visualizations
+## Approach
 
-The Power BI dashboard was created to visualize insights from the dataset.  
+### 1. Data Cleaning (Python)
+- Handled missing values and null records
+- Standardized column formats and data types
+- Prepared dataset for SQL import and Power BI connection
 
-### Dashboard Screenshot
-![Dashboard Overview](Screenshots/superstore_sales_dashboard.png)
+### 2. SQL Analysis (PostgreSQL)
+22 queries written covering:
+- Profit margin by category and sub-category
+- Loss-making orders by category and product
+- Month-over-month sales and profit growth (LAG)
+- Top/bottom products by profit (RANK, DENSE_RANK)
+- Repeat vs one-time customer segmentation (CASE)
+- Discount vs profit analysis
+- Shipping mode performance
+- Top 3 months per year (RANK with PARTITION BY)
 
-### Key Insights
-- Certain categories and sub-categories generate most of the revenue
-- Regional sales patterns reveal high-performing and low-performing markets
-- Customers who frequently purchase contribute more to overall revenue
-- Interactive dashboard allows filtering by category, region, and shipping type
+### 3. Power BI Dashboard
+5 interactive views:
+- Sales and profit overview (KPI cards)
+- Category and sub-category drill-down
+- Regional performance map
+- Monthly trend lines
+- Discount impact visualization
 
 ---
 
-## Power BI File
-The full Power BI dashboard file is available for download:
+## Key Takeaway
 
-[Download Power BI Dashboard](superstore_sales_analysis.pbix)
+The superstore's profitability problem wasn't a sales problem — it was a product mix and discounting problem. Tables alone carried a -8.56% margin while Paper ran at 43.39%. The business was essentially subsidizing its worst performers with its best ones without knowing it.
 
 ---
 
-## Conclusion
-This project demonstrates an end-to-end data analytics workflow:
-- Data cleaning with Python  
-- Analysis with SQL  
-- Visualization and insights with Power BI  
+## Files in This Repository
 
-It provides a clear view of sales, profit, and customer behavior to guide business decisions.
+| File | Description |
+|---|---|
+| `superstore_sales_analysis.ipynb` | Python data cleaning notebook |
+| `superstore_sales_analysis.sql` | 22 SQL queries with comments |
+| `superstore_sales_analysis.pbix` | Power BI dashboard file |
+| `Screenshots/` | Dashboard screenshots |
 
+---
+
+## Dashboard Preview
+
+![Dashboard](Screenshots/superstore_sales_dashboard.png)
+
+---
+
+*Part of my data analytics portfolio. Also see: [Customer Behavior Analysis](https://github.com/bhavika-chouhan/customer-behavior-analysis)*
