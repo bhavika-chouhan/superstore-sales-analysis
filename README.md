@@ -62,13 +62,16 @@ Orders with higher discount levels showed a consistent decline in profit — ana
 - Shipping mode performance
 - Top 3 months per year (RANK with PARTITION BY)
 
-### 3. Power BI Dashboard
-5 interactive views:
-- Sales and profit overview (KPI cards)
-- Category and sub-category drill-down
-- Regional performance map
-- Monthly trend lines
-- Discount impact visualization
+### Power BI Dashboard
+Single-page interactive dashboard containing:
+- KPI cards: Total Orders (10K), Total Sales ($2.30M), 
+  Total Profit ($286.40K), Total Customers (793)
+- Sales & Profit trend line (2014–2017)
+- Category-wise Sales and Profit bar charts
+- Profit Contribution by Sub-Category (horizontal bar)
+- Customer Purchase Behavior: 98.49% repeat vs 1.51% one-time
+- Average Shipping Days by Ship Mode
+- Slicers for Segment, Region, and Ship Mode
 
 ---
 
